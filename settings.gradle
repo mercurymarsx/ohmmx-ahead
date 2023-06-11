@@ -1,0 +1,22 @@
+rootProject.name = 'ohmmx-root'
+
+// 当前目录为项目HOME
+def projectHome = project(':').projectDir
+
+// 必须是不以点"."开头的文件夹
+def filter = { file ->
+	file.isDirectory() &&
+	file.name.charAt(0) != '.' &&
+	file.name != 'bin' &&
+	file.name != 'build' &&
+	file.name != 'gradle' &&
+	true
+} as FileFilter
+
+def projectDirList = []
+
+// 遍历项目HOME
+projectDirList.addAll projectHome.listFiles(filter)
+
+// Include项目HOME下所有项目
+include(projectDirList*.name as String[])
