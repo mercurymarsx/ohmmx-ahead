@@ -1,0 +1,13 @@
+description = "ohmmx-common"
+
+dependencies {
+	implementation project(':ohmmx-config')
+}
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+}

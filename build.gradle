@@ -33,6 +33,11 @@ subprojects {
 		dependencies {
 			modules {}
 			implementation 'org.springframework.boot:spring-boot-starter'
+			implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+			implementation "com.zaxxer:HikariCP:$zaxxerHikariCpVersion"
+
+			runtimeOnly 'com.mysql:mysql-connector-j'
 
 			testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
