@@ -5,6 +5,7 @@ buildscript {
 	}
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+		classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotlessVersion"
 	}
 }
 
@@ -19,6 +20,7 @@ subprojects {
 	apply plugin: 'idea'
 	apply plugin: 'org.springframework.boot'
 	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'com.diffplug.spotless'
 
 	group = 'com.ohmmx'
 
@@ -27,6 +29,34 @@ subprojects {
 
 	[compileJava, compileTestJava]*.options.collect { options ->
 		options.encoding = 'UTF-8'
+	}
+
+	spotless {
+		java {
+			importOrder 'java', 'javax', 'org', 'com', ''
+			removeUnusedImports()
+			lineEndings 'UNIX'
+			encoding 'UTF-8'
+			eclipse().configFile "${project(':ohmmx-config').projectDir}/spotless-style.xml"
+			trimTrailingWhitespace()
+			endWithNewline()
+		}
+		format 'misc', {
+			target '**/.gitignore', '**/*.gradle', '**/*.md', '**/*.sh'
+			indentWithTabs()
+			lineEndings 'UNIX'
+			encoding 'UTF-8'
+			trimTrailingWhitespace()
+			endWithNewline()
+		}
+		format 'yaml', {
+			target '**/*.yml', '**/*.yaml'
+			indentWithSpaces()
+			lineEndings 'UNIX'
+			encoding 'UTF-8'
+			trimTrailingWhitespace()
+			endWithNewline()
+		}
 	}
 
 	if(project.name != 'ohmmx-config' && project.name != 'ohmmx-center') {
