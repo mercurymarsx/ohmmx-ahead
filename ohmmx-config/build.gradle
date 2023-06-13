@@ -1,0 +1,9 @@
+description = "ohmmx-config"
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+}
