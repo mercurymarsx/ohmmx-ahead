@@ -4,4 +4,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      idle-timeout: 10000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    table: CFG_FLYWAY
