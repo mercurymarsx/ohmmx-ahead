@@ -70,6 +70,7 @@ subprojects {
 			implementation 'org.flywaydb:flyway-mysql'
 
 			implementation "com.zaxxer:HikariCP:$zaxxerHikariCpVersion"
+			implementation "org.springdoc:springdoc-openapi-ui:$springdocVersion"
 
 			runtimeOnly 'com.mysql:mysql-connector-j'
 
