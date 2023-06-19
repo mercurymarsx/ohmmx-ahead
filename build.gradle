@@ -70,8 +70,9 @@ subprojects {
 			implementation 'org.flywaydb:flyway-mysql'
 
 			implementation "com.google.code.gson:gson:$googleGsonVersion"
-			implementation "com.zaxxer:HikariCP:$zaxxerHikariCpVersion"
 			implementation "org.springdoc:springdoc-openapi-ui:$springdocVersion"
+			implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+			implementation "com.zaxxer:HikariCP:$zaxxerHikariCpVersion"
 
 			runtimeOnly 'com.mysql:mysql-connector-j'
 
