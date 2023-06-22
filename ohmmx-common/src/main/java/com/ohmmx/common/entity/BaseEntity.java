@@ -2,6 +2,8 @@ package com.ohmmx.common.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.ohmmx.common.id.IdGenerator;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
@@ -9,7 +11,7 @@ import jakarta.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class BaseEntity {
 	@Id
-	@GenericGenerator(name = "idGen", strategy = "com.ohmmx.common.id.IdGenerator")
+	@GenericGenerator(name = "idGen", type = IdGenerator.class)
 	@GeneratedValue(generator = "idGen")
 	protected String id;
 

@@ -10,3 +10,12 @@ spring:
     username: username
     password: password
     validationQuery: SELECT 1
+
+steam:
+  proxy:
+    enable: false
+    protocal: socks5
+    host: 127.0.0.1
+    port: 8000
+  apikey: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  id64: 77777777777777777
