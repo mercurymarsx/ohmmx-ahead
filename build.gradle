@@ -73,7 +73,7 @@ subprojects {
 			implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
 			implementation "com.zaxxer:HikariCP:$zaxxerHikariCpVersion"
 			implementation "joda-time:joda-time:$jodaTimeVersion"
-			implementation "org.springdoc:springdoc-openapi-ui:$springdocVersion"
+			implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion"
 
 			runtimeOnly 'com.mysql:mysql-connector-j'
 
