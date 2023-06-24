@@ -14,6 +14,7 @@ spring:
 springdoc:
   packages-to-scan: # 需要扫描的包,可以配置多个
     - com.ohmmx.steam.community.controller
+    - com.ohmmx.steam.shop.controller
   paths-to-exclude:  # 配置不包含在swagger文档中的api
     - /api/test/**
   swagger-ui:
