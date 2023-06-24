@@ -11,6 +11,19 @@ spring:
     password: password
     validationQuery: SELECT 1
 
+springdoc:
+  packages-to-scan: # 需要扫描的包,可以配置多个
+    - com.ohmmx.steam.community.controller
+  paths-to-exclude:  # 配置不包含在swagger文档中的api
+    - /api/test/**
+  swagger-ui:
+    enabled: false  # 开启/禁止swagger
+    path: /swagger-ui.html  # swagger页面
+  api-docs:
+    enabled: false # 开启/禁止api-docs
+    path: /api-docs # api的json文档
+  use-management-port: false
+
 steam:
   proxy:
     enable: false
