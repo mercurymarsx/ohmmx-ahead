@@ -1,11 +1,12 @@
 package com.ohmmx.common.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class BaseDeletableEntity extends BaseTimestampEntity {
+public abstract class BaseDeletableEntity<K extends Serializable> extends BaseTimestampEntity<K> {
 	protected Date deleteTimestamp;
 	protected boolean deleteFlag;
 

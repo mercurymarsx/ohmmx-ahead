@@ -1,0 +1,12 @@
+server:
+  port: 3510
+
+spring:
+  application:
+    name: OHMMX-BATCH
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/database?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: username
+    password: password
+    validationQuery: SELECT 1

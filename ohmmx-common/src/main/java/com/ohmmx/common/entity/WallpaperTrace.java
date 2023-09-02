@@ -2,14 +2,33 @@ package com.ohmmx.common.entity;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hibernate.annotations.GenericGenerator;
+
+import com.ohmmx.common.id.IdGenerator;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "WALLPAPER_TRACE")
-public class WallpaperTrace extends BaseEntity {
+public class WallpaperTrace {
+
+	@Id
+	@GenericGenerator(name = "idGen", type = IdGenerator.class)
+	@GeneratedValue(generator = "idGen")
+	protected String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	@NotNull
 	private String month;
 	private int start;
