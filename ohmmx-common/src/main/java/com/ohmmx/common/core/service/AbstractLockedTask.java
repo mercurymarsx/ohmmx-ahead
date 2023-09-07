@@ -6,13 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import com.ohmmx.common.core.jmx.ConfigurableBean;
 import com.ohmmx.common.entity.ConfigParameter;
 import com.ohmmx.common.redis.RedisLockerTools;
 
-public abstract class AbstractLockedTask extends QuartzJobBean implements InitializingBean, ConfigurableBean {
+public abstract class AbstractLockedTask implements InitializingBean, ConfigurableBean {
 
 	public static final int LOCK_SECONDS_DEFAULT = 1800;
 

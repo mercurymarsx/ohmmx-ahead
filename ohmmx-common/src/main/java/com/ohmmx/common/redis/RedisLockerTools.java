@@ -19,9 +19,9 @@ public class RedisLockerTools implements InitializingBean {
 
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
-	@Autowired
 	private RedisTemplate<String, String> redisTemplate;
 
+	@Autowired
 	public void setRedisTemplate(RedisTemplate<String, String> redisTemplate) {
 		this.redisTemplate = redisTemplate;
 	}

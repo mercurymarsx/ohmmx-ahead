@@ -8,10 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import com.ohmmx.common.core.TaskConsumeResult;
@@ -22,7 +20,6 @@ import com.ohmmx.common.mapper.TaskQueueRepository;
 import com.ohmmx.common.redis.RedisLockerTools;
 import com.ohmmx.common.utils.DateUtils;
 
-@Component
 public class TaskRunner implements InitializingBean, ApplicationContextAware {
 
 	public static final String LOCK_KEY_PREFIX = "locker:runner:";
@@ -40,7 +37,6 @@ public class TaskRunner implements InitializingBean, ApplicationContextAware {
 	@Autowired
 	protected RedisLockerTools lockerTools;
 
-	@Value("tools")
 	protected String namespace;
 
 	public void setNamespace(String namespace) {
@@ -66,7 +62,7 @@ public class TaskRunner implements InitializingBean, ApplicationContextAware {
 		try {
 			String key = lockerPrefix + id.toString();
 			lockerTools.inLock(key, () -> {
-				TaskQueue task2 = taskQueueRepository.findById(id).orElse(new TaskQueue());
+				TaskQueue task2 = taskQueueRepository.findById(id).orElse(null);
 				if (task2 == null) {
 					return;
 				}

@@ -3,13 +3,10 @@ package com.ohmmx.batch.quartz.service;
 import java.util.List;
 import java.util.Map;
 
-import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ohmmx.common.core.service.AbstractLockedTask;
 import com.ohmmx.common.core.task.TaskExecutor;
@@ -33,7 +30,6 @@ public class TaskQueueConsumer extends AbstractLockedTask implements Initializin
 
 	private TaskExecutor defaultExecutor;
 
-	@Autowired
 	private TaskQueueSelector selector;
 
 	public void setExecutors(Map<String, TaskExecutor> executors) {
@@ -71,11 +67,6 @@ public class TaskQueueConsumer extends AbstractLockedTask implements Initializin
 
 	@Override
 	public void executeInternal() throws Exception {
-		executeInternal(null);
-	}
-
-	@Override
-	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
 		List<TaskQueue> tasks = selector.select();
 		logger.info("TaskQueueConsumer schedule tasks count: [{}]", tasks.size());
 

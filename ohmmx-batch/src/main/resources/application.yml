@@ -10,3 +10,8 @@ spring:
     username: username
     password: password
     validationQuery: SELECT 1
+
+task:
+  consumer:
+    quartz:
+      cron: 0/3 * * * * ?
