@@ -38,6 +38,7 @@ public class SteamApp {
 	private SteamStageEnum stage;
 	private boolean card;
 	private boolean finished;
+	private boolean banned;
 	private int achievements;
 	private int doneAchieve;
 	private Date releaseDate;
@@ -146,6 +147,14 @@ public class SteamApp {
 
 	public void setFinished(boolean finished) {
 		this.finished = finished;
+	}
+
+	public boolean isBanned() {
+		return banned;
+	}
+
+	public void setBanned(boolean banned) {
+		this.banned = banned;
 	}
 
 	public int getAchievements() {
