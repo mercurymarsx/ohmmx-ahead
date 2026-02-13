@@ -1,0 +1,23 @@
+server:
+  port: 3502
+
+# application
+spring:
+  application:
+    name: OHMMX-FTREE
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/database?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: username
+    password: password
+    validationQuery: SELECT 1
+  flyway:
+    enabled: false
+
+springdoc:
+  packages-to-scan: # 需要扫描的包,可以配置多个
+    - com.ohmmx.ftree.controller
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true

@@ -1,0 +1,13 @@
+description = "ohmmx-erotic"
+
+dependencies {
+	implementation "com.googlecode.mp4parser:isoparser:$isoparserVersion"
+	implementation "org:jaudiotagger:$jaudiotaggerVersion"
+}
+
+apply plugin: 'application'
+
+bootJar {
+	mainClassName = 'com.ohmmx.erotic.FtreeApplication'
+	destinationDirectory = file(project.buildDir)
+}
